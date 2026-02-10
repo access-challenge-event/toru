@@ -1,0 +1,48 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-serif: 'DM Serif Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Custom focus styles */
+input:focus, select:focus, textarea:focus {
+    --tw-ring-color: #d97706;
+}
+
+/* Pagination styling override */
+nav[role="navigation"] {
+    display: flex;
+    justify-content: center;
+}
+nav[role="navigation"] .relative.inline-flex {
+    gap: 0.25rem;
+}
+nav[role="navigation"] span[aria-current="page"] span {
+    background-color: #d97706;
+    color: white;
+    border-color: #d97706;
+    border-radius: 0.5rem;
+}
+nav[role="navigation"] a {
+    border-radius: 0.5rem;
+}

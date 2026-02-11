@@ -1,3 +1,39 @@
+
+### HOW TO SETUP THE PROJECT
+
+## RECOMMENDATIONS
+IF you are not on Linux. I recommend you download the Ubuntu-24.04 LTS for WSL and fetch it in Docker Desktop under distros.
+
+1. Clone the repo
+``git clone https://github.com/access-challenge-event/toru.git``
+
+2. CD into the repo on your device (ideally do this on Linux or WSL to prevent long page load times)
+``cd toru``
+
+3. Mount the `vendor` folder (Docker must be installed and running)
+```
+docker run --rm --interactive --tty \
+  --volume $PWD:/app \
+  --user $(id -u):$(id -g) \
+  composer install
+```
+
+4. Build the app
+``./vendor/bin/sail up -d``
+
+5. Install node_modules
+``./vendor/bin/sail npm install``
+
+6. Run the database migrations
+``./vendor/bin/sail artisan migrate``
+
+7. Start the frontend or something
+``./vendor/bin/sail npm run dev``
+
+
+---
+## DONT WORRY ABOUT THE STUFF BELOW
+---
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
